@@ -1,4 +1,67 @@
-body{
-	font-family: 'Abel',sans-serif;
-	font-size: 1.5em;
+*{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
 }
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	font-family: 'Abel', Helvetica, sans-serif;
+}
+
+body {
+	background-image: url("../_img/background-login.png");	
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.login-card {
+	height: 100vh;
+}
+
+.logo {
+	height: 400px;
+	margin: 5px;
+}
+
+input[type="username"], 
+input[type="password"] {
+  background:#EAE6E1;
+  border:0;
+  padding:10px;
+  border-radius:3px;
+  width:100%;
+  margin:5px 0;
+  outline: medium none;
+  color:#d9d9d9;
+}
+input[type="submit"]{
+  display:block;
+  padding:10px;
+  background: #3399ff;
+  border:0;
+  border-radius:3px;
+  font-weight:bold;
+  width:100%;
+  color:#fff;
+  cursor:pointer;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+  transition:all 0.3s;
+}
+input[type="submit"]:hover{
+  background:#5cd65c;
+}
+
+/* FLEX */
+
+.login-card {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
