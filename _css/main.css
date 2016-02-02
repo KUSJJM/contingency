@@ -1,9 +1,25 @@
+/* Table of Contents  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- CSS Reset
+- General Content
+- Page Specific Styles
+- Site Section Styles
+- Site colours
+- Typography
+- Header & Navigation
+- Images & Media
+- Code Snippets
+- Footer
+- Media Queries
+*/
+
+
+/* CSS Reset  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 *{
-  -webkit-box-sizing:border-box;
-  -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
 
+
+/* General Content  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html, body {
 	height: 100%;
 	width: 100%;
@@ -11,7 +27,18 @@ html, body {
 	font-family: 'Abel', Helvetica, sans-serif;
 }
 
-body {
+header {
+    display: flex;
+    height: 10%;
+}
+
+header img {
+    height: 100%;
+}
+
+/* Page Specifc Styles  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* -- Login/Landing Page -- */
+#landingPage body {
 	background-image: url("../_img/background-login.png");	
 	background-repeat: no-repeat;
 	background-position: center;
@@ -63,5 +90,9 @@ input[type="submit"]:hover{
 	align-items: center;
 }
 
+/* Images & Media  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
+
+/* Media Queries  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Flexbox might render these redundant */
 
