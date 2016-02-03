@@ -4,7 +4,7 @@ var moduleLinks;
 var moduleSections;
    
 // when the page loads, grab the nav anchor elements
-moduleLinks = document.getElementsByTagName("main")[0].getElementsByTagName("nav")[0].getElementsByTagName("a");
+moduleLinks = document.getElementsByTagName("nav")[1].getElementsByTagName("a");
 // Now get all the articles
 moduleSections = document.getElementsByTagName("main")[0].getElementsByTagName("article");
 
