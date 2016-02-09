@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html id="landingPage" lang="en">
-    <head>
-        <title>Front Row | LMS</title>
-        <meta name="description" content="This is a prototype learning management system.">
-        <!-- Content below could be put in a PHP include -->
-        <meta charset="utf-8">
-        
-        <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-        
-        <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="stylesheet" href="_css/main.css">
-<!-- Probably want to add font awesome in       <link rel="stylesheet" href="/fonts/css/font-awesome.css">-->
-
-        <link rel="shortcut icon" href="/_img/favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <div class="login-card">
-            <img class="logo" src="_img/kulogo.png" alt="Kingston University">
-            
-            <form action="" method="post"> 
-                <input type="username" placeholder="K Number" /> 
-                <input type="password" placeholder="Password" />
-                <input type="submit" value="Login" />
-            </form>
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kingston University | LMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="_css/main.css">
+</head>
+<body>
+   <div class="wrapper">
+       <form>
+           <h2> Kingston University.</h2>
+           <input type="text" name="username" placeholder="K Number" required="" />
+           <input type="password" name="password" placeholder="Password" required="" />
+           <label class="checkbox">
+               <input type="checkbox" value="rememberMe" id="rememberMe" name="rememberMe">Remember Me
+           </label>
+           <button class="btn btn-lg btn-primary" type="submit"><a href="dashboard.html">Login</a></button>
+       </form>
+   </div>
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
 </html>
+   

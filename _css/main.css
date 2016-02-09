@@ -1,126 +1,40 @@
-/* Table of Contents  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-- CSS Reset
-- General Content
-- Page Specific Styles
-- Site Section Styles
-- Site colours
-- Typography
-- Header & Navigation
-- Images & Media
-- Code Snippets
-- Footer
-- Media Queries
-*/
-
-
-/* CSS Reset  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-*{
-  box-sizing:border-box;
-}
-
-
-/* General Content  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-html, body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	font-family: 'Abel', Helvetica, sans-serif;
-}
-
-header {
-    display: flex;
-    height: 10%;
-    background: #f2f2f2;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header img {
-    height: 100%;
-    margin-right: 1em;
-}
-
-header nav {
-    display: flex;
-    justify-content: flex-end;
-    align-self: flex-start;
-}
-
-header nav a {
-    padding: 1em;
+.navbar-text > a {
+    color: inherit;
     text-decoration: none;
 }
 
-article {
-    border-radius: 5px;
-    background: #f2f2f2;
+body {
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 
-/*
-main {
-    display: flex;
-    min-width: 70%;
-    align-self: center;
-}
-*/
-
-/* Page Specifc Styles  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* -- Login/Landing Page -- */
-#landingPage body {
-	background-image: url("../_img/background-login.png");	
-	background-repeat: no-repeat;
-	background-position: center;
+p {
+    font-family: Helvetica, sans-serif;
 }
 
-.login-card {
-	height: 100vh;
+.navbar-default {
+    background-color: #2f445d;
+    border-color: #fff;
+    color: #fff;
 }
 
-.logo {
-	height: 400px;
-	margin: 5px;
+.navbar-default .navbar-brand {
+    color: #fff;
+    
 }
 
-input[type="username"], 
-input[type="password"] {
-  background:#EAE6E1;
-  border:0;
-  padding:10px;
-  border-radius:3px;
-  width:100%;
-  margin:5px 0;
-  outline: medium none;
-  color:#d9d9d9;
-}
-input[type="submit"]{
-  display:block;
-  padding:10px;
-  background: #3399ff;
-  border:0;
-  border-radius:3px;
-  font-weight:bold;
-  width:100%;
-  color:#fff;
-  cursor:pointer;
-  -webkit-transition:all 0.3s;
-  -moz-transition:all 0.3s;
-  transition:all 0.3s;
-}
-input[type="submit"]:hover{
-  background:#5cd65c;
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #18bc9c;
 }
 
-/* FLEX */
-
-.login-card {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 
-/* Images & Media  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-
-
-/* Media Queries  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Flexbox might render these redundant */
-
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #1a242f;
+}
