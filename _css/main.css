@@ -38,3 +38,7 @@ p {
     color: #fff;
     background-color: #1a242f;
 }
+
+.card .card-block {
+    background-color: aqua;
+}
