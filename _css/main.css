@@ -54,6 +54,11 @@ header nav a {
 article {
     border-radius: 5px;
     background: #f2f2f2;
+    padding: 2%;
+}
+
+main {
+    margin: 2% 8%;
 }
 
 /*
@@ -64,10 +69,14 @@ main {
 }
 */
 
+a {
+    text-decoration: none;
+}
+
 /* Page Specifc Styles  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* -- Login/Landing Page -- */
 #landingPage body {
-	background-image: url("../_img/background-login.png");	
+	background-image: url("/_img/background-login.png");	
 	background-repeat: no-repeat;
 	background-position: center;
 }

@@ -22,7 +22,7 @@
             <a href="home.html">Home</a>
             <a href="moduleCatalogue.html">Module Catalogue</a>
             <a href="#">User Info</a>
-            <a href="#">Logout</a>
+            <a id="logout" href="#">Logout</a>
         </nav>
         </header>
         <main>
@@ -67,5 +67,12 @@
                 </section>
             </article>
         </main>
+        <script>
+            var logoff = document.getElementById("logout");
+            
+            logoff.onclick = function() {
+                window.close();
+            }
+        </script>
     </body>
 </html>
