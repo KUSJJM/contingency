@@ -1,3 +1,18 @@
+<?php
+require_once '_includes/pdoConnect.php';
+require_once '_includes/authenticate.php';
+
+//        session_start();
+//        $_SESSION['username'] = $kNumber;
+//        $_SESSION['authenticated'] = true;
+
+$stmt = $db->prepare('SELECT module.moduleID, module.moduleName
+FROM module, userModule
+WHERE module.moduleID=userModule.moduleID AND userModule.kNumber=:kNumber');
+$stmt->bindParam(':kNumber', $_SESSION['username']);
+$stmt->execute();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,54 +34,31 @@
             <img src="_img/kulogo.png" alt="Kingston University">
             <h1>Front Row</h1>
         <nav>
-            <a href="home.html">Home</a>
-            <a href="moduleCatalogue.html">Module Catalogue</a>
-            <a href="#">User Info</a>
-            <a id="logout" href="#">Logout</a>
+            <a href="home.php">Home</a>
+            <a href="moduleCatalogue.php">Module Catalogue</a>
+            <a href="#"><?= htmlentities($_SESSION['username']); ?> User Info</a>
+            <a id="logout" href="logout.php">Logout</a>
         </nav>
         </header>
         <main>
             <article>
 <!--  Just self contained content, other 'articles' could be general announcements, organisations, grades etc  -->
-                <h2>Modules</h2>
+                <h2>Your Modules:</h2>
+                <ul>
+                <?php
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<li><a href="module.php?moduleID='. $row['moduleID'] .'">Module: '. $row['moduleName'] .'</a></li>';
+                }
+                ?>
+                </ul>
+            </article>
+            <article>
+                <h2>Announcements</h2>
                 <section>
-                    <h3>Courses where you are: Student</h3>
-                    <ul>
-                        <li>
-                            <a href="module.html">Module 1</a>
-                        </li>
-                        <li>
-                            <a href="module.html">Module 2</a>
-                        </li>
-                        <li>
-                            <a href="module.html">Module 3</a>
-                        </li>
-                        <li>
-                            <a href="module.html">Module 4</a>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Courses where you are: Teaching Staff</h3>
-                    <ul>
-                        <li>
-                            <a href="module.html">Module 1</a>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Courses where you are: Guest</h3>
-                    <ul>
-                        <li>
-                            <a href="module.html">Module 1</a>
-                        </li>
-                        <li>
-                            <a href="module.html">Module 1</a>
-                        </li>
-                    </ul>
                 </section>
             </article>
         </main>
+<!--
         <script>
             var logoff = document.getElementById("logout");
 
@@ -74,5 +66,6 @@
                 window.close();
             }
         </script>
+-->
     </body>
 </html>
