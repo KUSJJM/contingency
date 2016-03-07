@@ -52,8 +52,10 @@ header nav a, body > nav a {
 }
 
 body > nav {
-    width: 60%;
-    margin: auto;
+    background: #e1e1e1;
+    padding-left: 20%;
+    padding-right: 20%;
+    /*margin: auto;*/
     display: flex;
     justify-content: space-around;
     align-self: flex-start;
