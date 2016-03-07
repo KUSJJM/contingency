@@ -46,9 +46,17 @@ header nav {
     align-self: flex-start;
 }
 
-header nav a {
+header nav a, body > nav a {
     padding: 1em;
     text-decoration: none;
+}
+
+body > nav {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-self: flex-start;
 }
 
 article {
@@ -76,7 +84,7 @@ a {
 /* Page Specifc Styles  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* -- Login/Landing Page -- */
 #landingPage body {
-	background-image: url("/_img/background-login.png");	
+	background-image: url("../_img/background-login.png");
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -90,7 +98,7 @@ a {
 	margin: 5px;
 }
 
-input[type="username"], 
+input[type="username"],
 input[type="password"] {
   background:#EAE6E1;
   border:0;
@@ -132,4 +140,3 @@ input[type="submit"]:hover{
 
 /* Media Queries  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Flexbox might render these redundant */
-
