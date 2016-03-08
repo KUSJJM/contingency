@@ -11,18 +11,35 @@ if(isset($_GET['moduleID'])) {
     if ($stmt->fetchColumn() == 0) {
         header('Location: home.php');
     } else {
+        //Get Module Name from module table
         $sql = 'SELECT moduleName FROM module WHERE moduleID = :moduleID';
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':moduleID', $_GET['moduleID']);
         $stmt->execute();
         $moduleName = $stmt->fetch(PDO::FETCH_ASSOC);
         
+        //Get Page Name from module page table
         $sql = 'SELECT pageName FROM modulePage WHERE moduleID = :moduleID';
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':moduleID', $_GET['moduleID']);
         $stmt->execute();
-        
+        //Dump everything into rows object, maybe change variable to a more meaningful name
         $rows = $stmt->fetchAll();
+        
+        //Get user privs
+        $sql = 'SELECT permission FROM userModule WHERE kNumber = :kNumber AND moduleID = :moduleID';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':moduleID', $_GET['moduleID']);
+        $stmt->bindParam(':kNumber', $_SESSION['username']);
+        $stmt->execute();
+        
+        if($stmt->fetchColumn() == 1){
+            $priv = true;
+        } else {
+            $priv = false;
+        }
+        //echo $stmt->fetchColumn();
+
     }
 } else {
     header('Location: home.php');
@@ -68,6 +85,13 @@ if(isset($_GET['moduleID'])) {
             ?>
         </nav>
         <main>
+            <?php
+                if($priv){
+                    echo '<h2>User has lecturer/edit priveledges</h2>';
+                } else {
+                    echo '<h2>User has guest/student priveledges</h2>';
+                }
+            ?>
             <pre>
             <?php
                 echo $_GET['moduleID'];

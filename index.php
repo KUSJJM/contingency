@@ -1,17 +1,20 @@
+<?php
+session_start();
+
+header('Location: login.php');
+?>
+
+<!--
 <!DOCTYPE html>
 <html id="landingPage" lang="en">
     <head>
         <title>Front Row | LMS</title>
         <meta name="description" content="This is a prototype learning management system.">
-        <!-- Content below could be put in a PHP include -->
         <meta charset="utf-8">
         
-        <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
         
-        <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <link rel="stylesheet" href="_css/main.css">
-<!-- Probably want to add font awesome in       <link rel="stylesheet" href="/fonts/css/font-awesome.css">-->
 
         <link rel="shortcut icon" href="/_img/favicon.ico" type="image/x-icon">
     </head>
@@ -26,4 +29,4 @@
             </form>
         </div>
     </body>
-</html>
+</html>-->
