@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
         <link rel="shortcut icon" href="/_img/favicon.ico" type="image/x-icon">
     </head>
     <body>
-    <h1>Login</h1>
+<!--    <h1>Login</h1>-->
     <?php
     if (isset($error)) {
         echo "<p>$error</p>";
