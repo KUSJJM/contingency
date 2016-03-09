@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 07, 2016 at 10:13 PM
+-- Generation Time: Mar 09, 2016 at 01:54 PM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.0
 
@@ -38,7 +38,8 @@ INSERT INTO `module` (`moduleID`, `moduleName`, `moduleDescription`) VALUES
 ('CI5100', 'Programming 2', 'Programming 2 is a Level 5 Module for Computing Students'),
 ('CI5220', 'Networking and Operating Systems', 'Networking and Operating Systems is a Level 5 Module for Computing Students'),
 ('CI5310', 'Database and UML Modelling', 'Database and UML Modelling is a Level 5 Module for Computing Students'),
-('CI5410', 'Projects and their Management', 'Projects and their Management is a Level 5 Module for Computing Students');
+('CI5410', 'Projects and their Management', 'Projects and their Management is a Level 5 Module for Computing Students'),
+('CI5420', 'Electronic and Web Business', 'Electronic and Web-Based Business Processes for Level 5 Information Systems Students');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`kNumber`, `pwd`, `fName`, `lName`, `kMail`) VALUES
 ('k1234567', '$2y$10$7r5h.hBc8it9SSRQZYtWneBOBZKs.nHUx8UwO0g722IGhjtRMHpbu', 'Joe', 'Bloggs', 'k1234567@kingston.ac.uk'),
 ('k1419876', '$2y$10$MG1Vj2zum9hy285dKIC5GuGJKS6dIxOPWBeJuAaVMVYHze.CslF52', 'First Year', 'Student', 'k1419876@kingston.ac.uk'),
-('k1460846', '$2y$10$5c2CKF27QMHEqyPNNpMmCOQnG2fLE5ItT93zW217NQEOvQoGHwJBK', 'Josh', 'String', 'k1460846@kingston.ac.uk');
+('k1460846', '$2y$10$5c2CKF27QMHEqyPNNpMmCOQnG2fLE5ItT93zW217NQEOvQoGHwJBK', 'Josh', 'String', 'k1460846@kingston.ac.uk'),
+('k2564193', '$2y$10$/gi8Z.qU29g5IoFbD4Ztnu0EBPG0IaGVrR1FiezI8RgB4tG59W0ha', 'Jessica', 'Wallaby', 'k2564193@kingston.ac.uk'),
+('ku25673', '$2y$10$LgOfIfbVKqHIleoVo.D3TOoWodkj2ya5zKLv79INWUrbaU2prolL6', 'Tim', 'Bucks', 'ku25673@kingston.ac.uk');
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,13 @@ INSERT INTO `userModule` (`kNumber`, `moduleID`, `permission`) VALUES
 ('k1460846', 'CI5100', 0),
 ('k1460846', 'CI5220', 0),
 ('k1460846', 'CI5310', 0),
-('k1460846', 'CI5410', 0);
+('k1460846', 'CI5410', 0),
+('k2564193', 'CI5100', 0),
+('k2564193', 'CI5220', 0),
+('k2564193', 'CI5310', 0),
+('k2564193', 'CI5420', 0),
+('ku25673', 'CI4100', 1),
+('ku25673', 'CI5100', 1);
 
 --
 -- Indexes for dumped tables
@@ -185,5 +194,5 @@ ALTER TABLE `modulePage`
 -- Constraints for table `userModule`
 --
 ALTER TABLE `userModule`
-  ADD CONSTRAINT `usermodule_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`),
-  ADD CONSTRAINT `usermodule_ibfk_1` FOREIGN KEY (`kNumber`) REFERENCES `user` (`kNumber`);
+  ADD CONSTRAINT `usermodule_ibfk_1` FOREIGN KEY (`kNumber`) REFERENCES `user` (`kNumber`),
+  ADD CONSTRAINT `usermodule_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`);
