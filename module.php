@@ -88,6 +88,53 @@ if(isset($_GET['moduleID'])) {
             <?php
                 if($priv){
                     echo '<h2>User has lecturer/edit priveledges</h2>';
+                    
+                    //FILE UPLOAD SCRIPT START
+                    
+                    $max = 50 * 1024 * 1024;
+                    $message = '';
+                    if (isset($_POST['upload'])) {
+                        $destination = '_uploads/';
+                        if ($_FILES['filename']['error'] == 0) {
+                            $result = move_uploaded_file($_FILES['filename']['tmp_name'], $destination . $_FILES['filename']['name']);
+                            if ($result) {
+                                $message = $_FILES['filename']['name'] . ' was uploaded successfully.';
+                            } else {
+                                $message = 'Sorry, there was a problem uploading ' .$_FILES['filename']['name'];
+                            }
+                        } else {
+                            switch ($_FILES['filename']['error']) {
+                                case 2:
+                                    $message = $_FILES['filename']['name'] . ' is too big to upload.';
+                                    break;
+                                case 4:
+                                    $message = 'No file selected.';
+                                    break;
+                                default:
+                                    $message = 'Sorry, there was a problem uploading ' .$_FILES['filename']['name'];
+                                    break;
+                            }
+                        }
+                    }
+            ?>
+            <h1>Uploading Files</h1>
+            <?php 
+            if ($message) {
+                echo "<p>$message</p>";
+            }
+            ?>
+            <form action="" method="post" enctype="multipart/form-data">
+                <p>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max;?>">
+                    <label for="filename">Select File:</label>
+                    <input type="file" name="filename" id="filename">
+                </p>
+                <p>
+                    <input type="submit" name="upload" value="Upload File">
+                </p>
+            </form>
+            <?php
+                    //FILE UPLOAD SCRIPT END
                 } else {
                     echo '<h2>User has guest/student priveledges</h2>';
                 }
