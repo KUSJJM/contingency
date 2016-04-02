@@ -12,6 +12,19 @@ WHERE module.moduleID=userModule.moduleID AND userModule.kNumber=:kNumber');
 $stmt->bindParam(':kNumber', $_SESSION['username']);
 $stmt->execute();
 
+
+class module {
+    private $moduleID;
+    private $moduleName;
+    
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+}
+
+$modules = $stmt->fetchAll(PDO::FETCH_CLASS, 'module');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +41,8 @@ $stmt->execute();
         <link rel="stylesheet" href="_css/main.css">
 <!-- Probably want to add font awesome in       <link rel="stylesheet" href="/fonts/css/font-awesome.css">-->
 
-        <link rel="shortcut icon" href="/_img/favicon.ico" type="image/x-icon">    </head>
+        <link rel="shortcut icon" href="/_img/favicon.ico" type="image/x-icon">
+    </head>
     <body>
         <header>
             <img src="_img/kulogo.png" alt="Kingston University">
@@ -46,10 +60,21 @@ $stmt->execute();
                 <h2>Your Modules:</h2>
                 <ul>
                 <?php
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<li><a href="module.php?moduleID='. $row['moduleID'] .'">Module: '. $row['moduleName'] .'</a></li>';
-                }
+//                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+//                    echo '<li><a href="module.php?moduleID='. $row['moduleID'] .'">Module: '. $row['moduleName'] .'</a></li>';
+//                }
                 ?>
+<!--
+                <?php foreach($modules as $key => $module) : ?>
+                    <li><a href="module.php?moduleID=<?= $module->moduleID ?>">Module: <?= $module->moduleName ?> and Key <?= $key ?></a></li>
+                <?php endforeach; ?>
+-->
+                   
+       
+                <?php foreach($modules as $module) : ?>
+                    <li><a href="module.php?moduleID=<?= $module->moduleID ?>">Module <?= $module->moduleID ?>: <?= $module->moduleName ?></a></li>
+                <?php endforeach; ?>
+
                 </ul>
             </article>
             <article>
